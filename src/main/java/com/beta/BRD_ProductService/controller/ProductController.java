@@ -1,6 +1,6 @@
 package com.beta.BRD_ProductService.controller;
 
-import com.beta.BRD_ProductService.ProductRequest;
+import com.beta.BRD_ProductService.model.ProductRequest;
 import com.beta.BRD_ProductService.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

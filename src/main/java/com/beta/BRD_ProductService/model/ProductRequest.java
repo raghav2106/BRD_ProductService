@@ -1,4 +1,4 @@
-package com.beta.BRD_ProductService;
+package com.beta.BRD_ProductService.model;
 
 import lombok.Data;
 
@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 
 @Data
 public class ProductRequest {
-
     private String productName;
     private BigDecimal price;
     private String img;

@@ -1,7 +1,8 @@
 package com.beta.BRD_ProductService.service;
 
-import com.beta.BRD_ProductService.ProductRequest;
 import com.beta.BRD_ProductService.entity.Product;
+import com.beta.BRD_ProductService.exception.ProductCreationException;
+import com.beta.BRD_ProductService.model.ProductRequest;
 import com.beta.BRD_ProductService.repository.ProductRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +18,22 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Long addproduct(ProductRequest productRequest) {
-        Product product = Product.builder()
-                        .productName(productRequest.getProductName())
-                                .price(productRequest.getPrice())
-                                        .img(productRequest.getImg())
-                                                .quantity(productRequest.getQuantity())
-                .createdBy(productRequest.getCreatedBy())
-                .build();
-         productRepository.save(product);
-       return product.getProductId();
+        try{
+            log.info("addproduct method : start");
+            Product product = Product.builder()
+                    .productName(productRequest.getProductName())
+                    .price(productRequest.getPrice())
+                    .img(productRequest.getImg())
+                    .quantity(productRequest.getQuantity())
+                    .createdBy(productRequest.getCreatedBy())
+                    .build();
+            productRepository.save(product);
+            log.info("addproduct method : end");
+            return product.getProductId();
+        }catch (Exception ex){
+            log.error("failed to execute add product method "+ex.getMessage());
+            throw new ProductCreationException("Failed to add product "+ ex.getMessage());
+        }
+
     }
 }
