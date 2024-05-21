@@ -1,5 +1,6 @@
 package com.beta.BRD_ProductService.controller;
 
+import com.beta.BRD_ProductService.exception.ProductNotFoundException;
 import com.beta.BRD_ProductService.model.ProductRequest;
 import com.beta.BRD_ProductService.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,4 +20,13 @@ public class ProductController {
         Long prodId = productService.addproduct(productRequest);
         return new ResponseEntity<>(prodId, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable Long id){
+
+        productService.deleteProduct(id);
+        return new ResponseEntity<>("Product deleted successfully",HttpStatus.OK);
+
+        }
 }
+

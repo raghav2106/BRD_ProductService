@@ -2,6 +2,7 @@ package com.beta.BRD_ProductService.service;
 
 import com.beta.BRD_ProductService.entity.Product;
 import com.beta.BRD_ProductService.exception.ProductCreationException;
+import com.beta.BRD_ProductService.exception.ProductNotFoundException;
 import com.beta.BRD_ProductService.model.ProductRequest;
 import com.beta.BRD_ProductService.repository.ProductRepository;
 import lombok.extern.log4j.Log4j2;
@@ -35,5 +36,13 @@ public class ProductServiceImpl implements ProductService{
             throw new ProductCreationException("Failed to add product "+ ex.getMessage());
         }
 
+    }
+
+    @Override
+    public void deleteProduct(Long id) throws ProductNotFoundException {
+        if(!productRepository.existsById(id)){
+            throw new ProductNotFoundException("Product with id " + id + " not found");
+        }
+        productRepository.deleteById(id);
     }
 }
