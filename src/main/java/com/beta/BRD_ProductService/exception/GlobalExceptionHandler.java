@@ -17,4 +17,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleProductDeletionException(ProductNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(ProductInsufficientQuantityException.class)
+    public ResponseEntity<String> handleProductInsufficientQuantityException(ProductInsufficientQuantityException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }

@@ -7,4 +7,6 @@ public interface ProductService {
     Long addproduct(ProductRequest productRequest);
 
     void deleteProduct(Long id) throws ProductNotFoundException;
+
+    void reduceQuantity(Long id, int quantity);
 }
