@@ -1,12 +1,12 @@
 package com.beta.BRD_ProductService.service;
 
-import com.beta.BRD_ProductService.Roles;
 import com.beta.BRD_ProductService.entity.Product;
 import com.beta.BRD_ProductService.exception.ProductCreationException;
 import com.beta.BRD_ProductService.exception.ProductInsufficientQuantityException;
 import com.beta.BRD_ProductService.exception.ProductNotFoundException;
 import com.beta.BRD_ProductService.model.ProductRequest;
 import com.beta.BRD_ProductService.repository.ProductRepository;
+import com.beta.BRD_ProductService.utils.Roles;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

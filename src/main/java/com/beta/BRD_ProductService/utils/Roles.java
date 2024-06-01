@@ -1,4 +1,4 @@
-package com.beta.BRD_ProductService;
+package com.beta.BRD_ProductService.utils;
 
 public enum Roles {
     CUSTOMER,

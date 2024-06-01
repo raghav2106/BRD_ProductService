@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/brd_cart
-    username: local_instance
-    password: root
+    username: root
+    password: root_user
 
   jpa:
     show-sql: true
